@@ -30,6 +30,7 @@ enum Waveform
 int DG4202_Init();       // Connect to the instrument
 char *DG4202_ReadID();   // Read the instrument ID
 int DG4202_Disconnect(); // Disconnect from the instrument
+void Channel1_ON();    // Enable Channel 1
 
 // DG4202 Instrument Set Functions
 void Set_frequency(int frequency);    // Set Wave Frequency
@@ -47,6 +48,7 @@ void Set_AM_depth(int depth_percent); // Set AM Modulation Depth (%)
 void Set_FSK(int mod_type);            // Set FSK Modulation Type (0: Off, 1: On)
 void Set_FSK_frequency(int frequency); // Set FSK Frequency (Hz)
 void Set_FSK_Rate(int rate);           // Set FSK Rate (Hz)
+void Set_FSK_Polarity(int positive); // Set FSK Polarity (0: Negative, 1: Positive)
 // Set ASK Modulation
 void Set_ASK(int mod_type);            // Set ASK Modulation Type (0: Off, 1: On)
 void Set_ASK_amplitude(double amplitude); // Set ASK Amplitude (Vpp)

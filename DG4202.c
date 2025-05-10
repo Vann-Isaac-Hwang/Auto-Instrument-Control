@@ -84,6 +84,11 @@ void Set_waveform(int waveform)
         break;
     }
 }
+void Channel1_ON()
+{
+    // Enable Channel 1
+    viPrintf(instrument, "OUTPut1:STATe ON\n");
+}
 void Set_FM(int mod_type)
 {
     // Set FM modulation type
@@ -156,13 +161,29 @@ void Set_FSK(int mod_type)
 void Set_FSK_frequency(int frequency_Hz)
 {
     // Set FSK frequency
-    viPrintf(instrument, "SOURce1:FSKey %d\n", frequency_Hz);
+    viPrintf(instrument, "SOURce1:MOD:FSKey %d\n", frequency_Hz);
 }
 void Set_FSK_Rate(int rate_Hz)
 {
     // Set FSK rate
     // Note: The rate is the frequency of the FSK signal, not the rate of change of the frequency.
-    viPrintf(instrument, "SOURce1:FSKey:INTernal:RATE %d\n", rate_Hz);
+    viPrintf(instrument, "SOURce1:MOD:FSKey:INTernal:RATE %d\n", rate_Hz);
+}
+void Set_FSK_Polarity(int positive)
+{
+    // Set FSK polarity
+    switch (positive)
+    {
+    case 0:
+        viPrintf(instrument, "SOURce1:MOD:FSKey:POLarity NEGative\n");
+        break;
+    case 1:
+        viPrintf(instrument, "SOURce1:MOD:FSKey:POLarity POSitive\n");
+        break;
+    default:
+        printf("Invalid polarity type\n");
+        break;
+    }
 }
 
 void Set_ASK(int mod_type)
