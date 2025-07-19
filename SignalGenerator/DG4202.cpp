@@ -63,55 +63,55 @@ void DG4202::Modulate(int channel, Modulation modType, bool enable)
 void DG4202::Set_Mod_Frequency_Internal(int channel, Modulation modType, int frequency_Hz)
 {
     // Implementation to set the modulation frequency for a specific channel
-    std::string command = "MODFREQ" + std::to_string(channel) + " " + std::to_string(frequency_Hz);
+    std::string command = "SOURce" + std::to_string(channel) + ":MOD:FREQuency " + std::to_string(frequency_Hz) + "\n";
     viPrintf(instrument, const_cast<char *>(command.c_str()));
 }
 
 void DG4202::Set_FM_deviation(int channel, int deviation)
 {
     // Implementation to set FM deviation for a specific channel
-    std::string command = "FMDEV" + std::to_string(channel) + " " + std::to_string(deviation);
+    std::string command = "SOURce" + std::to_string(channel) + ":MOD:FM:DEViation " + std::to_string(deviation) + "\n";
     viPrintf(instrument, const_cast<char *>(command.c_str()));
 }
 
 void DG4202::Set_AM_depth(int channel, int depth_percent)
 {
     // Implementation to set AM modulation depth for a specific channel
-    std::string command = "AMDEP" + std::to_string(channel) + " " + std::to_string(depth_percent);
+    std::string command = "SOURce" + std::to_string(channel) + ":MOD:AM:DEPTh " + std::to_string(depth_percent) + "\n";
     viPrintf(instrument, const_cast<char *>(command.c_str()));
 }
 
-void DG4202::Set_FSK_Rate(int channel, int rate)
+void DG4202::Set_FSK_Rate(int channel, int frequency_Hz)
 {
     // Implementation to set FSK rate for a specific channel
-    std::string command = "FSKRATE" + std::to_string(channel) + " " + std::to_string(rate);
+    std::string command = "SOURce" + std::to_string(channel) + ":MOD:FSKey:INTernal:RATe " + std::to_string(frequency_Hz) + "\n";
     viPrintf(instrument, const_cast<char *>(command.c_str()));
 }
 
 void DG4202::Set_FSK_Polarity(int channel, bool positive)
 {
     // Implementation to set FSK polarity for a specific channel
-    std::string command = "FSKPOL" + std::to_string(channel) + (positive ? ":POS" : ":NEG");
+    std::string command = "SOURce" + std::to_string(channel) + ":MOD:FSKey:POLarity " + (positive ? "POSitive" : "NEGative") + "\n";
     viPrintf(instrument, const_cast<char *>(command.c_str()));
 }
 
 void DG4202::Set_FSK_KeyFrequency(int channel, int frequency_Hz)
 {
     // Implementation to set FSK key frequency for a specific channel
-    std::string command = "FSKKEYFREQ" + std::to_string(channel) + " " + std::to_string(frequency_Hz);
+    std::string command = "SOURce" + std::to_string(channel) + ":MOD:FSKey:FREQuency " + std::to_string(frequency_Hz) + "\n";
     viPrintf(instrument, const_cast<char *>(command.c_str()));
 }
 
 void DG4202::Set_ASK_amplitude(int channel, double amplitude)
 {
     // Implementation to set ASK amplitude for a specific channel
-    std::string command = "ASKAMP" + std::to_string(channel) + " " + std::to_string(amplitude);
+    std::string command = "SOURce" + std::to_string(channel) + ":MOD:ASKey:AMPLitude " + std::to_string(amplitude) + "\n";
     viPrintf(instrument, const_cast<char *>(command.c_str()));
 }
 
 void DG4202::Set_ASK_frequency(int channel, int frequency_Hz)
 {
     // Implementation to set ASK frequency for a specific channel
-    std::string command = "ASKFREQ" + std::to_string(channel) + " " + std::to_string(frequency_Hz);
+    std::string command = "SOURce" + std::to_string(channel) + ":MOD:ASKey:INTernal:RATE " + std::to_string(frequency_Hz) + "\n";
     viPrintf(instrument, const_cast<char *>(command.c_str()));
 }

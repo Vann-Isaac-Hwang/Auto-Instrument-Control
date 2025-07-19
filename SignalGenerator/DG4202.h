@@ -34,7 +34,7 @@ public:
     // AM Modulation Setters
     void Set_AM_depth(int channel, int depth_percent);  // Set AM modulation depth
     // FSK Modulation Setters
-    void Set_FSK_Rate(int channel, int rate);   // Set FSK rate
+    void Set_FSK_Rate(int channel, int frequency_Hz);   // Set FSK rate
     void Set_FSK_Polarity(int channel, bool positive);  // Set FSK polarity
     void Set_FSK_KeyFrequency(int channel, int frequency_Hz);   // Set FSK key frequency
     // ASK Modulation Setters

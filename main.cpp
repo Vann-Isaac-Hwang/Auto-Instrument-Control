@@ -15,8 +15,9 @@ int main()
     DG4202_A.Set_frequency(1, 1000); // Set frequency for channel 1 to 1000 Hz
     DG4202_A.Set_amplitude(1, 2.0);   // Set amplitude for channel 1 to 5.0 V
     DG4202_A.Set_waveform(1, SINE); // Set waveform for channel 1 to SINE
-    DG4202_A.Modulate(1, FM, true); // Enable FM modulation on channel 1
-    
+    DG4202_A.Modulate(1, AM, true); // Enable AM modulation on channel 1
+    DG4202_A.Set_AM_depth(1, 100); // Set AM modulation depth to 100%
+
     // Disconnect from the instrument
     DG4202_A.Disconnect();
 
