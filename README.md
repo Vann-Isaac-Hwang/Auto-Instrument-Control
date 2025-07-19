@@ -1,6 +1,7 @@
 # Auto-Instrument-Control
 ## Currently supported instrument:
 * RIGOL DG4202 Signal Generator
+* RIGOL DS2202A Oscilloscope
 ## To setup the program
 ### **Part 1: Connect to instrument**
 #### 1. Install NI-VISA instrument driver.

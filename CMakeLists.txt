@@ -3,7 +3,9 @@ project(AutoInstrumentControl VERSION 0.1.0 LANGUAGES C CXX)
 
 add_executable(AutoInstrumentControl main.cpp 
     ./SignalGenerator/SigGen.cpp 
-    ./SignalGenerator/DG4202.cpp)
+    ./SignalGenerator/DG4202.cpp
+    ./Oscilloscope/Oscillo.cpp
+    ./Oscilloscope/DS2202A.cpp)
 
 include_directories("C:/Program Files/IVI Foundation/VISA/Win64/Include")
 

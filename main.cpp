@@ -1,7 +1,8 @@
 #include <iostream>
 #include "./SignalGenerator/DG4202.h"
+#include "./Oscilloscope/DS2202A.h"
 
-int main()
+void DG4202Example()
 {
     // Create an instance of DG4202 with the resource name
     DG4202 DG4202_A("USB0::0x1AB1::0x0641::DG4E264101726::INSTR");
@@ -20,6 +21,27 @@ int main()
 
     // Disconnect from the instrument
     DG4202_A.Disconnect();
+}
+
+void DS2202AExample()
+{
+    // Create an instance of DS2202A with the resource name
+    DS2202A oscilloscope("USB0::0x1AB1::0x04B0::DS2D264601325::INSTR");
+    
+    // Read and print the instrument ID
+    std::string id = oscilloscope.ReadID();
+    std::cout << "Instrument ID: " << id << std::endl;
+
+    // Perform auto-scaling on the oscilloscope
+    oscilloscope.AutoScale();
+
+    // Disconnect from the instrument
+    oscilloscope.Disconnect();
+}
+
+int main()
+{
+    DS2202AExample();
 
     return 0;
 }
